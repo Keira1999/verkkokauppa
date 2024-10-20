@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipo Studio - Etusivu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Pipo Studio</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Etusivu</a></li>
+            <li><a href="products.html">Kauppa</a></li>
+            <li><a href="cart.html">Ostoskori (<span id="cart-count">0</span>)</a></li>
+            <li><a href="about.html">Yritys</a></li>
+        </ul>
+    </nav>
+    </header>
+<main>
+    <h1 style="font-size: 40px; color: #ffffff;">Lämpöä ja tyyliä jokaiseen päivään</h1>
+    <div class="index-container">
+        <p style="font-size: 22px; color:#ffffff">
+            Etsitkö täydellistä pipoa talven pakkasiin tai viileisiin syysiltoihin?<br>
+            Olet tullut oikeaan paikkaan! Meidän pipovalikoimamme yhdistää tyylin,<br>
+            mukavuuden ja kestävyyden – löydät varmasti suosikkisi jokaiseen hetkeen.</p>
+            <h2 style="font-size: 21px; color: #ffffff;">Helppo ja nopea ostokokemus:</h2>
+            <p style="font-size: 18px; color:#ffffff">Ilmainen toimitus yli 50 € tilauksiin<br>
+            30 päivän palautusoikeus</p>
+        </div>
+</main>
+
+
+
+
+    <footer>
+        <p>@pipostudio | asiakaspalvelu@pipostudio.fi | 041 313 9865</p>
+        <p>© 2024 Pipo Studio</p>
+        <div id="txt"></div>
+    </footer>
+    <script src="assets/script.js"></script>
+    <script>
+    function startTime() {
+        const today = new Date();
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+        setTimeout(startTime, 1000);
+    }
+
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i}; 
+        return i;
+    }
+
+
+    startTime();
+    </script>
+</body>
+</html>

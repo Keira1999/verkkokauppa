@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipo Studio - Ostoskori</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Pipo Studio</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Etusivu</a></li>
+            <li><a href="products.html">Kauppa</a></li>
+            <li><a href="cart.html">Ostoskori (<span id="cart-count">0</span>)</a></li>
+            <li><a href="about.html">Yritys</a></li>
+        </ul>
+    </nav>
+    </header>
+
+ 
+     <main>
+        <div class="cart-container">
+            <h2 style="font-size: 36px; color: #ffffff;">Ostoskori</h2>
+            <table id="cart-table">
+                <thead>
+                    <tr>
+                        <th>Tuote</th>
+                        <th>Hinta</th>
+                        <th>Määrä</th>
+                        <th>Yhteensä</th>
+                        <th>Poista</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Tuotetiedot lisätään JavaScriptin avulla -->
+                </tbody>
+            </table>
+
+            <div id="cart-total" style="font-size: 21px; font-weight: bold; text-align: center; margin-top: 20px;">
+                Ostosten loppusumma: 0 €
+                <!-- Loppusumma päivittyy JavaScriptin avulla -->
+            </div>
+
+            <button id="clear-cart">Tyhjennä ostoskori</button> <!-- Tyhjennä ostoskori -painike -->
+            <button id="checkout">Osta nyt</button> <!-- Osta nyt -painike -->
+        </div>
+     </main>
+
+     <!-- Modaalinen ikkuna -->
+     <div id="thankYouModal" class="modal">
+        <div class="modal-content">
+            <span id="modal-message">Kiitos tilauksesta!</span>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>@pipostudio | asiakaspalvelu@pipostudio.fi | 041 313 9865</p>
+        <p>© 2024 Pipo Studio</p>
+        <div id="txt"></div>
+    </footer>
+    <script src="assets/script.js"></script>
+    <script>
+        function startTime() {
+            const today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+            setTimeout(startTime, 1000);
+        }
+    
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};
+            return i;
+        }
+    
+    
+        startTime();
+    </script>
+</body>
+</html>

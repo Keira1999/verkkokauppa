@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipo Studio - Kauppa</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        div {
+            margin: 40px auto;
+            border-radius: 25px;
+            max-width: 1200px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pipo Studio</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Etusivu</a></li>
+            <li><a href="products.html">Kauppa</a></li>
+            <li><a href="cart.html">Ostoskori (<span id="cart-count">0</span>)</a></li>
+            <li><a href="about.html">Yritys</a></li>
+        </ul>
+    </nav>
+    </header>
+
+    <main>
+        <div class="products-container">
+            <h1 class="products-title">Tuotteemme:</h1>
+            <section id="products" class="container">
+                <div class="product" data-id="1">
+                    <h3>Sininen pipo</h3>
+                    <img src="images/sininenpipo.png" alt="tuote1">
+                    <p>Katso lanka <a href="https://novita.com/products/novita-hygge-wool-100-villalanka" target="_blank">täältä!</a></p>
+                    <p>Hinta: 15.00 €</p>
+                    <button class="add-to-cart">Lisää ostoskoriin</button>
+                </div>
+
+                <div class="product" data-id="2">
+                    <h3>Musta pipo</h3>
+                    <img src="images/mustapipo.png" alt="tuote2">
+                    <p>Katso lanka <a href="https://www.garnstudio.com/yarn.php?show=drops-merino-extra-fine&cid=11" target="_blank">täältä!</a></p>
+                    <p>Hinta: 15.00 €</p>
+                    <button class="add-to-cart">Lisää ostoskoriin</button>
+                </div>
+            
+                <div class="product" data-id="3">
+                    <h3>Värikäs pipo</h3>
+                    <img src="images/varikaspipo.png" alt="tuote3">
+                    <p>Katso langat <a href="https://www.garnstudio.com/yarn.php?show=drops-merino-extra-fine&cid=11" target="_blank">täältä!</a></p>
+                    <p>Hinta: 15.00 €</p>
+                    <button class="add-to-cart">Lisää ostoskoriin</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+     <!-- Modaalinen ikkuna -->
+     <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="modal-message">Tuote lisätty ostoskoriin!</span>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>@pipostudio | asiakaspalvelu@pipostudio.fi | 041 313 9865</p>
+        <p>© 2024 Pipo Studio</p>
+        <div id="txt"></div>
+    </footer>
+    <script src="assets/script.js"></script>
+    <script>
+        function startTime() {
+            const today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            let s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+            setTimeout(startTime, 1000);
+        }
+    
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i}; 
+            return i;
+        }
+    
+        startTime();
+    </script>
+</body>
+</html>
